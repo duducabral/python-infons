@@ -1,0 +1,58 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<div class="container mt-4">
+    <h1 class="mb-4">Estruturas de Seleção em Python</h1>
+
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2>Conceito</h2>
+        </div>
+        <div class="card-body">
+            <p>As estruturas de seleção permitem que o programa execute diferentes blocos de código com base em condições específicas. Em Python, as principais estruturas são:</p>
+            <ul>
+                <li><strong>if</strong>: Executa um bloco de código se uma condição for verdadeira</li>
+                <li><strong>elif</strong>: Permite testar múltiplas condições em sequência</li>
+                <li><strong>else</strong>: Executa um bloco de código se todas as condições anteriores forem falsas</li>
+            </ul>
+            <p class="mb-0">Essas estruturas são fundamentais para controlar o fluxo de execução do programa.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h2>Aplicação</h2>
+        </div>
+        <div class="card-body">
+            <p>As estruturas de seleção são utilizadas em diversas situações, como:</p>
+            <ul>
+                <li>Validação de dados de entrada</li>
+                <li>Tomada de decisão baseada em cálculos ou condições</li>
+                <li>Implementação de regras de negócio condicionais</li>
+                <li>Controle de fluxo em algoritmos</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            <h2>Exemplo de Código</h2>
+        </div>
+            <div class="card-body">
+                <pre><code class="language-python">
+                    # Exemplo: Verificação de idade +18
+
+                    idade = int(input("Digite sua idade: "))
+
+                    if idade >= 18:
+                        print("Acesso permitido")
+                    else:
+                        print("Acesso negado - Menor de idade")
+
+                </code></pre>
+            </div>
+    </div>
+</div>  
+{% endblock %}
+
+   
+

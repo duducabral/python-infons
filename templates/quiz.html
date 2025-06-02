@@ -1,0 +1,57 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<div class="container mt-4">
+  <h2>Quiz de Python</h2>
+  {% if resultado is defined %}
+    <div class="alert alert-info">
+      <h4>Resultado: {{ resultado }} acertos de 4 perguntas</h4>
+      <ul class="mt-3">
+        {% for mensagem in mensagens %}
+          <li>{{ mensagem }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <a href="/quiz" class="btn btn-primary">Tentar novamente</a>
+  {% else %}
+    <form action="/quiz" method="POST">
+      <div class="mb-3">
+        <label class="form-label">1. Qual estrutura é usada para tomar decisões condicionais em Python?</label>
+        <div>
+          <input type="radio" name="q1" value="if" required> if-elif-else<br>
+          <input type="radio" name="q1" value="for"> for<br>
+          <input type="radio" name="q1" value="while"> while<br>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">2. Qual loop é usado quando sabemos quantas vezes queremos repetir um bloco de código?</label>
+        <div>
+          <input type="radio" name="q2" value="for" required> for<br>
+          <input type="radio" name="q2" value="while"> while<br>
+          <input type="radio" name="q2" value="repeat"> repeat<br>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">3. Em Python, como chamamos a estrutura que armazena uma coleção ordenada de itens (equivalente a vetores)?</label>
+        <div>
+          <input type="radio" name="q3" value="lista" required> Lista<br>
+          <input type="radio" name="q3" value="tupla"> Tupla<br>
+          <input type="radio" name="q3" value="dicionario"> Dicionário<br>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">4. Qual palavra-chave é usada para definir uma função em Python?</label>
+        <div>
+          <input type="radio" name="q4" value="def" required> def<br>
+          <input type="radio" name="q4" value="function"> function<br>
+          <input type="radio" name="q4" value="func"> func<br>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}

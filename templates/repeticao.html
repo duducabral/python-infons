@@ -1,0 +1,53 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<div class="container mt-4">
+    <h1 class="mb-4">Estruturas de Repetição em Python</h1>
+
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2>Conceito</h2>
+        </div>
+        <div class="card-body">
+            <p>Permitem executar um bloco de código múltiplas vezes. Principais estruturas:</p>
+            <ul>
+                <li><strong>for</strong>: Para iterações conhecidas</li>
+                <li><strong>while</strong>: Repete enquanto condição for verdadeira</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h2>Aplicação</h2>
+        </div>
+        <div class="card-body">
+            <p>Usadas para:</p>
+            <ul>
+                <li>Processar coleções de dados</li>
+                <li>Implementar algoritmos iterativos</li>
+                <li>Repetir ações até condição ser satisfeita</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            <h2>Exemplo de Código</h2>
+        </div>
+        <div class="card-body">
+            <pre><code class="language-python">
+                # For - iterando lista
+                frutas = ['maçã', 'banana', 'laranja']
+                for fruta in frutas:
+                    print(fruta)
+
+                # While - contador
+                contador = 0
+                while contador < 5:
+                    print(contador)
+                    contador += 1
+            </code></pre>
+        </div>
+    </div>
+</div>
+{% endblock %}

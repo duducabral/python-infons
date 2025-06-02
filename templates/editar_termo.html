@@ -1,0 +1,29 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<div class="container mt-4">
+    <h1>Editar Termo</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('atualizar_termo', index=index) }}" method="post">
+        <div class="mb-3">
+            <label for="termo" class="form-label">Termo</label>
+            <input class="form-control" id="termo" name="termo" value="{{ termo[0] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="definicao" class="form-label">Definição</label>
+            <textarea class="form-control" id="definicao" name="definicao" rows="3" required>{{ termo[1] }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+        <a href="/glossario" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

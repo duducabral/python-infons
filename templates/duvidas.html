@@ -1,0 +1,88 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+    <title>Seção de Tirar Dúvidas</title>
+    <style>
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Largura fixa para o formulário */
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center; /* Centraliza o título */
+        }
+        form {
+            margin-bottom: 1.5rem;
+        }
+        textarea {
+            width: 100%;
+            min-height: 90px;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Botão ocupa toda a largura */
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .answer {
+            margin-top: 1.5rem;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .error {
+            color: #e74c3c;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seção de Tirar Dúvidas</h1>
+        <form method="post" onsubmit="return submitForm()">
+            <label for="pergunta">Digite sua dúvida:</label><br />
+            <textarea id="pergunta" name="pergunta" placeholder="Escreva sua pergunta aqui..." required>{{ pergunta or '' }}</textarea><br />
+            <button type="submit">Enviar</button>
+        </form>
+        {% if resposta %}
+            <div class="answer">{{ resposta }}</div>
+        {% endif %}
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+
+    <script>
+        function submitForm() {
+            const textarea = document.getElementById('pergunta');
+            if (textarea.value.trim() === '') {
+                return false; // Prevent submission if the textarea is empty
+            }
+            return true; // Allow form submission
+        }
+
+        // Add event listener to the textarea for the Enter key
+        document.getElementById('pergunta').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent the default action (new line)
+                document.querySelector('form').submit(); // Submit the form
+            }
+        });
+    </script>
+{% endblock %}
